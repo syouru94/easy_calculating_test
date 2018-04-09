@@ -1,5 +1,6 @@
 from easy_caculating_game import practice as pr
 from easy_caculating_game import testing as testing
+from easy_caculating_game import firebase_helper as fh
 import pandas as pd
 
 while True:
@@ -57,4 +58,14 @@ elif your_choice=="2":
     points_list=test_result_dict["得分"]
     points=str(sum(points_list))
     print("您的得分為： " + points+" 分")
+
+
+    upload_grade=input("是否上傳？ y/n:")
+    if upload_grade=="y":
+        name=input("你的名字：")
+        fh.save_data("Grades", name, test_result_dict)
+    else:
+        print("請再多多練習")
+
+
 
