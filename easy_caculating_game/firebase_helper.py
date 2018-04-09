@@ -31,10 +31,10 @@ def save_data(collection_name, doc_name, data_set):
   return db.collection(collection_name).document(doc_name).set(data_set)
 
 #定義 查詢資料 函式
-def select(name, ccy, type):
+def select(name):
   
   # 建立 doc 的參考
-  doc_ref = db.collection('學生成績').document(name)
+  doc_ref = db.collection('Grades').document(name)
   
   try:
     
@@ -45,10 +45,10 @@ def select(name, ccy, type):
     data = pd.Series(doc.to_dict())
     
     # 回傳抓到結果
-    return data[ccy][type]
+    return data
   
   # 出現例外狀況呢？
   except:
     
     # 列印出提示訊息
-    print('有東西出錯囉')
+    print('你還沒考過試！')

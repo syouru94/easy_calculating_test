@@ -17,9 +17,9 @@ def real_test():
     div_right = 0
     div_wrong = 0
     print("加法:")
-    for i in range(1, 10):
-        number1 = ge.number_generator(-1000, 1000)
-        number2 = ge.number_generator(-1000, 1000)
+    for i in range(1, 11):
+        number1 = ge.number_generator(-10, 10)
+        number2 = ge.number_generator(-10, 10)
         print("題目 "+str(i) + ": "+ca.addition_generator(number1, number2))
         ans = pr.ans_input()
         if ans == ca.addition_check(number1, number2):
@@ -27,9 +27,9 @@ def real_test():
         else:
             addi_wrong += 1
     print("減法:")
-    for i in range(1, 10):
-        number1 = ge.number_generator(-1000, 1000)
-        number2 = ge.number_generator(-1000, 1000)
+    for i in range(1, 11):
+        number1 = ge.number_generator(-10, 10)
+        number2 = ge.number_generator(-10, 10)
         print("題目 "+str(i) + ": "+ca.substraction_generator(number1, number2))
         ans = pr.ans_input()
         if ans == ca.substraction_check(number1, number2):
@@ -37,9 +37,9 @@ def real_test():
         else:
             sub_wrong += 1
     print("乘法:")
-    for i in range(1, 10):
-        number1 = ge.number_generator(-100, 100)
-        number2 = ge.number_generator(-100, 100)
+    for i in range(1, 11):
+        number1 = ge.number_generator(-10, 10)
+        number2 = ge.number_generator(-10, 10)
         print("題目 "+str(i) + ": "+ca.multiplication_generator(number1, number2))
         ans = pr.ans_input()
         if ans == ca.multiplication_check(number1, number2):
@@ -48,10 +48,10 @@ def real_test():
             mul_wrong += 1
     print("除法")
 
-    for i in range(1, 10):
+    for i in range(1, 11):
         while True:
-            number1 = ge.number_generator(-50, 50)
-            number2 = ge.number_generator(-50, 50)
+            number1 = ge.number_generator(-10, 10)
+            number2 = ge.number_generator(-10, 10)
             while True:
                 try:
                     answer = float(str(number1))/float(str(number2))
