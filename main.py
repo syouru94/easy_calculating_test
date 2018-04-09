@@ -2,6 +2,7 @@ from easy_caculating_game import practice as pr
 from easy_caculating_game import testing as testing
 from easy_caculating_game import firebase_helper as fh
 import pandas as pd
+import sys
 
 while True:
     your_choice = input("請選擇 1. 練習模式 2. 測驗模式 3. 成績查詢：")
@@ -80,9 +81,15 @@ elif your_choice == "2":
         print("請再多多練習")
 
 else:
-    print ("本功能可以自已上傳之成績，查詢到對應姓名")
-    name=input("請輸入姓名")
-    data=fh.select(name)
+    print ("本功能可以自已上傳之成績，查詢到對應姓名")    
+    while True:
+        name = input("請輸入姓名：")
+        data = fh.select(name)
+        if data != None:
+            break
+        else:
+            continue
+
     print(data)
     while True:
         q_type=input("您想查詢何種題型之解果呢？")

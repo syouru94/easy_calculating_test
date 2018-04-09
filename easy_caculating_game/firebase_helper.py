@@ -51,4 +51,5 @@ def select(name):
   except:
     
     # 列印出提示訊息
-    print('你還沒考過試！')
+    print('你還沒考過試！請重新輸入姓名')
+    return None
