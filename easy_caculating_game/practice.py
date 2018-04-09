@@ -25,12 +25,8 @@ def practice_ASMD(question_num):
                 break
         except ValueError:
             print("別開玩笑了，請輸入正確的數字")
-
-
 # 請使用者選擇要「產生的問題類型
-
     question = "請鍵入想產生的問題組合： 1. 全為加法 2. 全為減法 3. 全為乘法 4. 全為除法 5. 加法與減法 6. 加法與乘法 7. 加法與除法 8. 減法與乘法 9. 減法與除法 10.乘法與除法 11.隨機"
-
     print(question)
     while True:
         your_choice = input("您的選擇：")
@@ -116,7 +112,6 @@ def practice_ASMD(question_num):
                 wrong_ans += 1
 
     # 4. 全為除法
-
     elif your_choice == "4":
         right_ans = 0
         wrong_ans = 0

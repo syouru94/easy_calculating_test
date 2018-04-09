@@ -3,17 +3,10 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 import pandas as pd
 
-# 專案中下載的私密金鑰，必須改成你自己的
-
-
-
-
 # 產生授權物件
 cred = credentials.Certificate(
     "/Users/Lewis/Desktop/vscode/easy_caculating_test/serviceAccount.json")
-
 # 如果firebase_admin 是 None 就初始化，僅會初始化一次
-
 try:
   firebase_admin.delete_app(firebase_admin.get_app())
 except:
@@ -31,8 +24,7 @@ def save_data(collection_name, doc_name, data_set):
   return db.collection(collection_name).document(doc_name).set(data_set)
 
 #定義 查詢資料 函式
-def select(name):
-  
+def select(name): 
   # 建立 doc 的參考
   doc_ref = db.collection('Grades').document(name)
   

@@ -88,3 +88,14 @@ def real_test():
     return test_result_dict
     #分數計算
     #資料處理
+
+
+def result_get(test_result_list):
+    test_result_saving={}
+    for i in range(0, 5):
+        test_result_saving[test_result_list[0][i]] = {"正確數": str(test_result_list[1][i]),
+                                                      "錯誤數": str(test_result_list[2][i]),
+                                                      "答對率": str(test_result_list[3][i]),
+                                                      "得分": str(test_result_list[4][i])}
+    return test_result_saving
+
