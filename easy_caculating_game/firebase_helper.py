@@ -3,6 +3,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 import pandas as pd
 
+
 # 產生授權物件
 cred = credentials.Certificate(
     "/Users/Lewis/Desktop/vscode/easy_caculating_test/serviceAccount.json")
@@ -24,7 +25,8 @@ def save_data(collection_name, doc_name, data_set):
   return db.collection(collection_name).document(doc_name).set(data_set)
 
 #定義 查詢資料 函式
-def select(name): 
+def select(name):
+  
   # 建立 doc 的參考
   doc_ref = db.collection('Grades').document(name)
   
@@ -41,7 +43,7 @@ def select(name):
   
   # 出現例外狀況呢？
   except:
-    
+    mes="NO"
     # 列印出提示訊息
     print('你還沒考過試！請重新輸入姓名')
-    return None
+    return mes

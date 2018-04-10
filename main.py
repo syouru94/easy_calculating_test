@@ -56,14 +56,16 @@ elif your_choice == "2":
     test_result = pd.DataFrame(test_result_dict, columns=[
                                "題型", "正確數", "錯誤數", "答對率", "得分"])
 
-    print(test_result)
-
     points_list = test_result_dict["得分"]
     points = str(sum(points_list))
     print("您的得分為： " + points+" 分")
-# 將return之測驗dict中之value提出，整理為方面觀察與提取的形式
-    test_result_list = list(test_result_dict.values())
-    test_result_saving = testing.result_get(test_result_list)
+    print(test_result_dict)
+
+    test_result_saving={}
+#將return之測驗dict中之value提出，整理為方面觀察與提取的形式
+    test_result_list=list(test_result_dict.values())
+    test_result_saving=testing.result_get(test_result_list)
+    
     upload_grade = input("是否上傳？ y/n:")
     if upload_grade == "y":
         name = input("你的名字：")
@@ -71,20 +73,21 @@ elif your_choice == "2":
         print("上傳成功!歡迎再次測驗以取得更高分數")
     else:
         print("請再多多練習")
-# 查詢功能
+
 else:
-    print("本功能可以自已上傳之成績，查詢到對應姓名")
+    print ("本功能可以自已上傳之成績，查詢到對應姓名")    
     while True:
         name = input("請輸入姓名：")
         data = fh.select(name)
-        if data != None:
+        if type(data) != str:
             break
         else:
             continue
 
     print(data)
+    
     while True:
-        q_type = input("您想查詢何種題型之解果呢？")
+        q_type=input("您想查詢何種題型之解果呢？")
         try:
             print(data[q_type])
             break
