@@ -340,7 +340,7 @@ def practice_ASMD(question_num):
             a = random.randint(1, 100)
             if a < 25:
                 print("題目 "+str(i) + ": " +
-                      ca.substraction_generator(number1, number2))
+                      ca.addition_generator(number1, number2))
                 ans = ans_input()
                 if ans == ca.addition_check(number1, number2):
                     right_ans += 1
