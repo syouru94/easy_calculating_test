@@ -33,10 +33,9 @@ def select(name):
   try:
     
     # 試著讀取數據
-    doc = doc_ref.get()
-    
+    data = doc_ref.get()
     # 將數據轉換為字典
-    data = pd.Series(doc.to_dict())
+    data = data.to_dict()
     
     # 回傳抓到結果
     return data
@@ -47,3 +46,38 @@ def select(name):
     # 列印出提示訊息
     print('你還沒考過試！請重新輸入姓名')
     return mes
+
+#firebase提取整體資料整理function
+def total_performance():
+  docs = db.collection("Grades").get()
+  print ("目前有以下學生之成績")
+  id_dict={}
+  name_list=[] #這個是name的名單，等等會轉成np.array
+  addi_list=[]
+  sub_list=[]
+  mul_list=[]
+  div_list=[]
+  lin_list=[]
+
+  for doc in docs:
+    id_dict[doc.id] = doc.to_dict()
+    name_list.append(doc.id)
+    print(doc.id)
+  for i in range(len(name_list)):
+    addi_list.append(id_dict[name_list[i]]["加法題"]["答對率"])
+    sub_list.append(id_dict[name_list[i]]["減法題"]["答對率"])
+    mul_list.append(id_dict[name_list[i]]["乘法題"]["答對率"])
+    div_list.append(id_dict[name_list[i]]["除法題"]["答對率"])
+    lin_list.append(id_dict[name_list[i]]["二元一次方程式"]["答對率"])
+  
+  total_list=[]
+  total_list.append(name_list)
+  total_list.append(addi_list)
+  total_list.append(sub_list)
+  total_list.append(mul_list)
+  total_list.append(div_list)
+  total_list.append(lin_list)
+
+
+    
+  return (total_list)

@@ -12,8 +12,10 @@
 - 以鍵盤輸入之簡易UI
 - 將測驗結果上傳至firebase
 - 至firebase抓取特定測驗結果查詢
+- 至firebase抓取整體測試者答對率，並以matplotlib呈現長條圖
 
 尚未完成功能：
 - 圖形化之UI
 - 二元一次題目並未支援產生負數係數之設定
 - 除法並未支援以分數形式表示之解答
+- 以google colaboratory呈現如試卷一般的測驗

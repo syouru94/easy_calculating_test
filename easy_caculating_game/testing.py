@@ -3,6 +3,7 @@ from easy_caculating_game import practice as pr
 from easy_caculating_game import caculator as ca
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def real_test():
@@ -93,9 +94,15 @@ def real_test():
 def result_get(test_result_list):
     test_result_saving={}
     for i in range(0, 5):
-        test_result_saving[test_result_list[0][i]] = {"正確數": str(test_result_list[1][i]),
-                                                      "錯誤數": str(test_result_list[2][i]),
-                                                      "答對率": str(test_result_list[3][i]),
-                                                      "得分": str(test_result_list[4][i])}
+        test_result_saving[test_result_list[0][i]] = {"正確數": (test_result_list[1][i]),
+                                                      "錯誤數": (test_result_list[2][i]),
+                                                      "答對率": (test_result_list[3][i]),
+                                                      "得分": (test_result_list[4][i])}
     return test_result_saving
+
+def show_histgraph(name,list,num):
+    array = np.array(list[num])
+
+    plt.bar(range(len(array)), array, tick_label=name)
+    plt.show()
 

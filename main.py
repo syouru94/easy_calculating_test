@@ -2,6 +2,8 @@ from easy_caculating_game import practice as pr
 from easy_caculating_game import testing as testing
 from easy_caculating_game import firebase_helper as fh
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 import sys
 
 while True:
@@ -61,11 +63,11 @@ elif your_choice == "2":
     print("您的得分為： " + points+" 分")
     print(test_result)
 
-    test_result_saving={}
-#將return之測驗dict中之value提出，整理為方面觀察與提取的形式
-    test_result_list=list(test_result_dict.values())
-    test_result_saving=testing.result_get(test_result_list)
-    
+    test_result_saving = {}
+# 將return之測驗dict中之value提出，整理為方面觀察與提取的形式
+    test_result_list = list(test_result_dict.values())
+    test_result_saving = testing.result_get(test_result_list)
+
     upload_grade = input("是否上傳？ y/n:")
     if upload_grade == "y":
         name = input("你的名字：")
@@ -75,21 +77,72 @@ elif your_choice == "2":
         print("請再多多練習")
 
 else:
-    print ("本功能可以自已上傳之成績，查詢到對應姓名")    
+
     while True:
-        name = input("請輸入姓名：")
-        data = fh.select(name)
-        if type(data) != str:
+        result_fun = input("1. 查詢個人  2. 查詢全體表現：")
+        if result_fun == "1":
+            break
+        elif result_fun == "2":
             break
         else:
             continue
+    if result_fun == "1":
 
-    print(data)
+        print("本功能可以自已上傳之成績，查詢到對應姓名")
+        while True:
+            name = input("請輸入姓名：")
+            data = fh.select(name)
+            if type(data) != str:
+                break
+            else:
+                continue
 
-    while True:
-        q_type=input("您想查詢何種題型之解果呢？")
-        try:
-            print(data[q_type])
-            break
-        except:
-            print("請輸入有效的題型")
+        print(data)
+        data＿series = pd.Series(data)
+        print(data_series)
+        while True:
+            q_type = input("您想查詢何種題型之解果呢？")
+            try:
+                print(data_series[q_type])
+                break
+            except:
+                print("請輸入有效的題型")
+    else:
+        total_list = fh.total_performance()
+        while True:
+
+            overall_result = input(
+            "您想搜查 1. 整體加法表現 2. 整體減法表現 3. 整體乘法表現 4. 整體除法表現 5. 整體二元一次")
+            if overall_result == "1":
+                break
+            
+            elif overall_result == "2":
+                break
+            elif overall_result == "3":
+                break
+            elif overall_result == "4":
+                break
+            elif overall_result == "5":
+                break
+            else:
+                print("請輸入正確選項")
+                continue
+
+        name_array = np.array(total_list[0])
+
+        if overall_result == "1":
+
+            testing.show_histgraph(name_array, total_list, 1)
+        elif overall_result == "2":
+
+            testing.show_histgraph(name_array, total_list, 2)
+        elif overall_result == "3":
+
+            testing.show_histgraph(name_array, total_list, 3)
+        elif overall_result == "4":
+
+            testing.show_histgraph(name_array, total_list, 4)
+        elif overall_result == "5":
+
+            testing.show_histgraph(name_array, total_list, 5)
+
