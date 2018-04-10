@@ -59,7 +59,7 @@ elif your_choice == "2":
     points_list = test_result_dict["得分"]
     points = str(sum(points_list))
     print("您的得分為： " + points+" 分")
-    print(test_result_dict)
+    print(test_result)
 
     test_result_saving={}
 #將return之測驗dict中之value提出，整理為方面觀察與提取的形式
@@ -85,7 +85,7 @@ else:
             continue
 
     print(data)
-    
+
     while True:
         q_type=input("您想查詢何種題型之解果呢？")
         try:
